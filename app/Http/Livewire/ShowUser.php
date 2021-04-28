@@ -24,7 +24,8 @@ class ShowUser extends Component
     {
         $users = User::where('name', 'like', '%' . $this->search . '%')
                    ->orWhere('email', 'like', '%' . $this->search . '%')
-                   ->paginate(1);
+                   ->orderBy($this->sort, $this->direction)
+                   ->paginate(10);
                    
         return view('livewire.show-user', compact('users'));
     }

@@ -27,6 +27,9 @@
                                 <i class="fas fa-sort float-right mt-1"></i>
                             @endif
                         </th>
+                        <th>
+                            Identificacion
+                        </th>
                         <th scope="col" role="button" wire:click="order('name')">
                             nombre
                             @if ($sort == 'name')
@@ -58,8 +61,16 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{$user->id}}</td>
+                            <td> {{$user->nacionalidad->abreviado}}-{{$user->cedula}} </td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
+                            <td> 
+                                @if ($user->estatus == 1)
+                                    <span class="badge badge-success">Activo</span>
+                                @else
+                                    <span class="badge badge-danger">Inactivo <i class="fad fa-user-times"></i></span>
+                                @endif
+                            </td>
                             <td width="8px">
                                 <a class="btn btn-outline-info btn-sm mr-1" href=""><i class="fas fa-edit"></i></a>
                             </td>

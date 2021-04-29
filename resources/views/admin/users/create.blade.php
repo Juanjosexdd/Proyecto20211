@@ -2,7 +2,9 @@
 
 @section('title', 'Registrar nuevo usuario')
 
+
 @section('content_header')
+    <a href=" {{route('admin.users.index')}} " class="float-right h5 text-blue"> Volver <i class="fas fa-reply"></i></a>
     <h1>Registrar nuevo usuario</h1>
 @stop
 
@@ -14,10 +16,9 @@
                 style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
             </div>
             <div class="card-custom-avatar">
-                <img class="img-fluid"
+               <!-- <img class="img-fluid"
                     src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
-                    alt="Avatar" />
-                                    
+                    alt="Avatar" /> -->
             </div>
             <div class="card-body" style="overflow-y: auto">
                 @livewire('create-user')
@@ -36,7 +37,7 @@
     <style>
         .card-custom {
             overflow: hidden;
-            min-height: 450px;
+            min-height: 50px;
             box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
         }
 
@@ -53,7 +54,7 @@
         .card-custom-img::after {
             position: absolute;
             content: '';
-            top: 161px;
+            top: 31px;
             left: 0;
             width: 0;
             height: 0;
@@ -83,6 +84,7 @@
 @stop
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
@@ -96,3 +98,5 @@
 
     </script>
 @stop
+
+

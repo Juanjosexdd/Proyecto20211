@@ -11,6 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Nacionalidad;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -25,11 +26,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = ['id','created_at','updated_at'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -68,16 +65,21 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(Profile::class);
+        return $this->belongsTo(Profile::class);
     }
 
     public function departamento()
     {
-        return $this->hasOne(Departamento::class);
+        return $this->belongsTo(Departamento::class);
     }
 
     public function cargo()
     {
-        return $this->hasOne(Cargo::class);
+        return $this->belongsTo(Cargo::class);
+    }
+
+    public function setPasswordAttribute($pass)
+    {
+        $this->attributes['password'] = Hash::make($pass);
     }
 }

@@ -22,7 +22,9 @@ class ShowUser extends Component
 
     public function render()
     {
-        $users = User::where('name', 'like', '%' . $this->search . '%')
+        $users = User::where('cedula', 'like', '%' . $this->search . '%')
+                   ->orWhere('name', 'like', '%' . $this->search . '%')
+                   ->orWhere('cargo_id', 'like', '%' . $this->search . '%')
                    ->orWhere('email', 'like', '%' . $this->search . '%')
                    ->orderBy($this->sort, $this->direction)
                    ->paginate(10);

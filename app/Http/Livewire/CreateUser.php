@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Cargo;
 use App\Models\Departamento;
 use App\Models\Nacionalidad;
+use Spatie\Permission\Models\Role;
+
 
 class CreateUser extends Component
 {
@@ -20,9 +22,11 @@ class CreateUser extends Component
     ];     
     public function render()
     {
-        $departamentos = Departamento::all();
-        $nacionalidads = Nacionalidad::all();
-        $cargos = Cargo::all();
-        return view('livewire.create-user', compact('cargos','departamentos','nacionalidads'));
+
+        $departamentos = Departamento::pluck('nombre','id');
+        $nacionalidads = Nacionalidad::pluck('abreviado','id');
+        $cargos = Cargo::pluck('nombre','id');
+        $roles = Role::all();
+        return view('livewire.create-user', compact('cargos','departamentos','nacionalidads','roles'));
     }
 }

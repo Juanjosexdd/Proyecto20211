@@ -4,7 +4,6 @@
 
 
 @section('content_header')
-    <a href=" {{route('admin.users.index')}} " class="float-right h5 text-blue"> Volver <i class="fas fa-reply"></i></a>
     <h1>Registrar nuevo usuario</h1>
 @stop
 
@@ -84,7 +83,6 @@
 @stop
 
 @section('js')
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>

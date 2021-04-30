@@ -19,6 +19,7 @@ class ShowUser extends Component
     {
         $this->resetPage();
     }
+    
 
     public function render()
     {

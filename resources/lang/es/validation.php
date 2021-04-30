@@ -149,7 +149,8 @@ return [
     'attributes' => [
         'title' => 'Titulo',
         'content' => 'Contenido',
-        'name' => 'nombre'
+        'name' => 'nombre',
+        'last_name' => 'apellidos'
     ],
 
 ];

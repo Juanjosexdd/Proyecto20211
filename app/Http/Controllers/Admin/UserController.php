@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\Models\Cargo;
+use App\Models\Departamento;
+use App\Models\Nacionalidad;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -34,7 +39,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $user = User::create($request->all());
         if ($request->roles)
@@ -66,9 +71,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $departamentos = Departamento::pluck('nombre','id');
+        $nacionalidads = Nacionalidad::pluck('abreviado','id');
+        $cargos = Cargo::pluck('nombre','id');
+        $roles = Role::all();
+
+         return view('admin.users.edit', compact('departamentos','nacionalidads','cargos','roles','user'));
     }
 
     /**
@@ -78,9 +88,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+
+        $user->update($request->all());
+
+        if ($request->roles)
+        {
+            $user->roles()->sync($request->get('roles','user'));
+        }
+
+        $user->save();
+        
+        return redirect()->route('admin.users.index');
     }
 
     /**

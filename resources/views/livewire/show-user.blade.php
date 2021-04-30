@@ -97,7 +97,7 @@
                                 @endif
                             </td>
                             <td width="8px">
-                                <a class="btn btn-outline-info btn-sm mr-1 elevation-4" href=""><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-outline-info btn-sm mr-1 elevation-4" href=" {{route('admin.users.edit',$user)}} "><i class="fas fa-edit"></i></a>
                             </td>
                             <td width="8px">
                                 <a class="btn btn-outline-danger btn-sm elevation-4" href=""><i class="fas fa-trash "></i></a>

@@ -12,17 +12,8 @@ use Spatie\Permission\Models\Role;
 class CreateUser extends Component
 {
 
-    public $ottPlatform = '';
- 
-    public $webseries = [
-        'Wanda Vision',
-        'Money Heist',
-        'Lucifer',
-        'Stranger Things'
-    ];     
     public function render()
     {
-
         $departamentos = Departamento::pluck('nombre','id');
         $nacionalidads = Nacionalidad::pluck('abreviado','id');
         $cargos = Cargo::pluck('nombre','id');

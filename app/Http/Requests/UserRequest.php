@@ -30,7 +30,8 @@ class UserRequest extends FormRequest
                 'cedula' => 'required|unique:users,cedula' . $this->user,
                 'address' => 'required',
                 'phone' => 'required',
-                'email' => 'required|unique:users'
+                'email' => 'required|unique:users,email' . $this->user,
+                'password' => 'nullable'
         ];
     }
 }

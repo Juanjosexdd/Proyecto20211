@@ -1,8 +1,6 @@
 <div>
-    <a href=" {{route('admin.users.index')}} " class="float-right h5 text-blue"> Volver  <i class="fas fa-reply"></i></a>
-    <p class="h3 text-blue">Informacion Personal</p>
+    <a href=" {{route('admin.users.index')}} " class="float-right h5 text-blue"><i class="fas fa-reply"></i>  Volver  </a>
 
-    <hr>
     {!! Form::open(['route' => 'admin.users.store', 'autocomplete' => 'off', 'files' => true]) !!}
         @include('admin.users.partials.form')
         {!! Form::submit('Guardar usuario', ['class' => 'btn btn-outline-primary btn-block']) !!}

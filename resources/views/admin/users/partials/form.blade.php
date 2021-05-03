@@ -1,12 +1,15 @@
+<p class="h3 text-blue">Información Personal</p>
+<hr>
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            {!! Form::label('name', 'Nombres : ',['class' => 'text-blue']) !!}
+            {!! Form::label('name', 'Nombres & ',['class' => 'text-blue']) !!}       {!! Form::label('slug', 'slug :',['class' => 'text-blue']) !!}
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="far fa-address-card text-blue"></i></span>
                 </div>
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombres']) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombres', ]) !!}
+                {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug' ,'readonly']) !!}
             </div>
             @error('name')
                 <small class="text-danger mt-0">{{$message}}</small>
@@ -44,7 +47,7 @@
                 </div>
                 {!! Form::text('cedula', null, ['class' => 'form-control', 'placeholder' => 'Cedula']) !!}
             </div>
-            @error('last_name')
+            @error('cedula')
                 <small class="text-danger mt-0">{{$message}}</small>
             @enderror
         </div>
@@ -61,6 +64,9 @@
                 {!! Form::number('phone', null, ['class' => 'form-control', 'placeholder' => 'Celular']) !!}
             </div>
         </div>
+        @error('phone')
+            <small class="text-danger mt-0">{{$message}}</small>
+        @enderror
     </div>
     <div class="col-md-4">
         <div class="form-group">
@@ -82,6 +88,9 @@
                 </div>
                 {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Correo electronico']) !!}
             </div>
+            @error('email')
+                <small class="text-danger mt-0">{{$message}}</small>
+            @enderror
         </div>
     </div>
 </div>
@@ -91,6 +100,9 @@
             {!! Form::label('address', 'Dirección : ',['class' => 'text-blue']) !!}
             {!! Form::textarea('address', null, ['class' => 'form-control', 'rows' => '2']) !!}
         </div>
+        @error('address')
+            <small class="text-danger mt-0">{{$message}}</small>
+        @enderror
     </div>
 </div>
 <div class="row">
@@ -107,7 +119,7 @@
     </div>
 </div>
 <br>
-<p class="h3 text-blue">Informacion Institucional</p>
+<p class="h3 text-blue">Información Institucional</p>
 <hr>
 <div class="row">
     <div class="col-md-6">
@@ -144,3 +156,19 @@
             @endforeach
     </div>
 </div>
+
+@section('js')
+<script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+
+
+    <script>
+        $(document).ready( function() {
+            $("#name").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+
+    </script>
+@stop

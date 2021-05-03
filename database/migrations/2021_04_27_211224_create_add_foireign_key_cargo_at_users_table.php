@@ -22,7 +22,7 @@ class CreateAddFoireignKeyCargoAtUsersTable extends Migration
                   ->on('cargos')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-
+            $table->string('slug')->after('name');
             $table->string("cedula")->unique()->after('cargo_id')->nullable();
             $table->string("last_name")->after('name')->nullable();
             $table->string("address")->after('last_name')->nullable();

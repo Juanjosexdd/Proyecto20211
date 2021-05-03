@@ -57,7 +57,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
     public function nacionalidad()
     {
         return $this->belongsTo(Nacionalidad::class);

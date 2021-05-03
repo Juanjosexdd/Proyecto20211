@@ -15,7 +15,7 @@ class CreateAddFoireignKeyDepartamentoAtUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            $table->unsignedBigInteger("departamento_id")->after('nacionalidad_id')->nullable();
+            $table->unsignedBigInteger("departamento_id")->after('tipodocumento_id')->nullable();
             
             $table->foreign('departamento_id')
                   ->references('id')

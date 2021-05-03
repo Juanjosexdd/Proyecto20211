@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddFoireignKeyNacionalidadToUsersTable extends Migration
+class CreateAddFoireignKeyTipoDocumentoToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,11 @@ class CreateAddFoireignKeyNacionalidadToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger("nacionalidad_id")->after('empresa_id')->nullable();
+            $table->unsignedBigInteger("tipodocumento_id")->after('empresa_id')->nullable();
             
-            $table->foreign('nacionalidad_id')
+            $table->foreign('tipodocumento_id')
                   ->references('id')
-                  ->on('nacionalidads')
+                  ->on('tipodocumentos')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
         });
@@ -31,6 +31,6 @@ class CreateAddFoireignKeyNacionalidadToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_foireign_key_nacionalidad_to_users');
+        Schema::dropIfExists('add_foireign_key_tipodocumento_to_users');
     }
 }

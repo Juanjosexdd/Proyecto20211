@@ -150,7 +150,8 @@ return [
         'title' => 'Titulo',
         'content' => 'Contenido',
         'name' => 'nombre',
-        'last_name' => 'apellidos'
+        'last_name' => 'apellidos',
+        'phone' => 'telefono'
     ],
 
 ];

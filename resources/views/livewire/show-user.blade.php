@@ -84,7 +84,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{$user->id}}</td>
-                            <td> {{$user->nacionalidad->abreviado}}-{{$user->cedula}} </td>
+                            <td> {{$user->tipodocumento->abreviado}}-{{$user->cedula}} </td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td> {{$user->cargo->nombre}}</td>

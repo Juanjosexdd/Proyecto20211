@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use App\Models\Nacionalidad;
+use App\Models\Tipodocumento;
 use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
@@ -61,9 +61,9 @@ class User extends Authenticatable
     {
         return "slug";
     }
-    public function nacionalidad()
+    public function tipodocumento()
     {
-        return $this->belongsTo(Nacionalidad::class);
+        return $this->belongsTo(Tipodocumento::class);
     }
 
     public function profile()

@@ -24,7 +24,7 @@
                 {!! Form::open(['route' => 'admin.tipodocumentos.store']) !!}
 
                 @include('admin.tipodocumentos.partials.form')
-                {!! Form::submit('Guardar nacionalidad', ['class' => 'btn btn-outline-primary btn-block']) !!}
+                {!! Form::submit('Guardar tipo documento', ['class' => 'btn btn-outline-primary btn-block']) !!}
             {!! Form::close() !!}
             </div>
             <div class="card-footer" style="background: inherit; border-color: inherit;">

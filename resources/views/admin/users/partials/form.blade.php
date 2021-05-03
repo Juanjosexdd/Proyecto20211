@@ -31,9 +31,9 @@
         </div>
     </div>
     <div class="col-md-1">
-            {!! Form::label('nacionalidad_id', 'N : ',['class' => 'text-blue']) !!}
-            {!! Form::select('nacionalidad_id', $nacionalidads, null, ['class' => 'form-control']) !!}
-            @error('nacionalidad_id')
+            {!! Form::label('tipodocumento_id', 'N : ',['class' => 'text-blue']) !!}
+            {!! Form::select('tipodocumento_id', $tipodocumentos, null, ['class' => 'form-control']) !!}
+            @error('tipodocumento_id')
                 <small class="text-danger">{{$message}}</small>
             @enderror
     </div>

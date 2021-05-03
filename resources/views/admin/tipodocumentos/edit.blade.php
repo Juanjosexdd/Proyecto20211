@@ -19,10 +19,9 @@
             <div class="card-custom-avatar">
             </div>
             <div class="card-body" style="overflow-y: auto">
-            <a href=" {{route('admin.nacionalidads.index')}} " class="float-right h5 text-blue"><i class="fas fa-reply"></i>    Volver</a>
-            {!! Form::model($nacionalidad ,['route' => ['admin.nacionalidads.update', $nacionalidad],'method' => 'PUT', 'autocomplete' => 'off']) !!}
-                @include('admin.nacionalidads.partials.form')
-                {!! Form::submit('Guardar nacionalidad', ['class' => 'btn btn-outline-primary btn-block']) !!}
+            {!! Form::model($tipodocumento ,['route' => ['admin.tipodocumentos.update', $tipodocumento],'method' => 'PUT', 'autocomplete' => 'off']) !!}
+                @include('admin.tipodocumentos.partials.form')
+                {!! Form::submit('Guardar tipo documento', ['class' => 'btn btn-outline-primary btn-block']) !!}
 
             {!! Form::close() !!}
             </div>
@@ -86,18 +85,6 @@
 @stop
 
 @section('js')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-        Livewire.on('alert', function($message) {
-            Swal.fire(
-                'Buen Trabajo!',
-                $message,
-                'success'
-            )
-        })
-
-    </script>
 @stop
 
 

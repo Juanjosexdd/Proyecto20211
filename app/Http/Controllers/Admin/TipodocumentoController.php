@@ -37,34 +37,34 @@ class TipodocumentoController extends Controller
             'slug' => 'required|unique:tipodocumentos'
         ]);
 
-        $tipodocuneto = Tipodocumento::create($request->all());
+        $tipodocumento = Tipodocumento::create($request->all());
 
-        return redirect()->route('admin.tipodocumentos.edit', $tipodocuneto)->with('info', 'La tipodocuneto se creo con exito...');
+        return redirect()->route('admin.tipodocumentos.edit', $tipodocumento)->with('success', 'El tipo de documento se creo con exito...');
     }
 
-    public function edit(Tipodocumento $tipodocuneto)
+    public function edit(Tipodocumento $tipodocumento)
     {
 
-        return view ('admin.tipodocumentos.edit', compact('tipodocuneto'));
+        return view ('admin.tipodocumentos.edit', compact('tipodocumento'));
         
     }
 
-    public function update(Request $request, Tipodocumento $tipodocuneto)
+    public function update(Request $request, Tipodocumento $tipodocumento)
     {
         $request->validate([
             'nombre' => 'required',
-            'slug' => "required|unique:tipodocumentos,slug,$tipodocuneto->id",
+            'slug' => "required|unique:tipodocumentos,slug,$tipodocumento->id",
             'abreviado' => 'required'
         ]);
 
-        $tipodocuneto->update($request->all());
-        return redirect()->route('admin.tipodocumentos.edit', $tipodocuneto)->with('info', 'La tipodocuneto se actualizó con exito...');
+        $tipodocumento->update($request->all());
+        return redirect()->route('admin.tipodocumentos.edit', $tipodocumento)->with('success', 'El tipo de documento se actualizó con exito...');
     }
 
-    public function destroy(Tipodocumento $tipodocuneto)
+    public function destroy(Tipodocumento $tipodocumento)
     {
-        $tipodocuneto->delete();
+        $tipodocumento->delete();
 
-        return redirect()->route('admin.tipodocumentos.index')->with('info', 'La tipodocuneto se eliminó con exito...');
+        return redirect()->route('admin.tipodocumentos.index')->with('success', 'El tipodocumento se eliminó con exito...');
     }
 }

@@ -239,91 +239,72 @@ return [
             'url'         => 'admin',
             'icon'        => 'fas fa-tachometer-alt fa-fw'
         ],
-        // [
-        //     'text'        => 'pages',
-        //     'url'         => 'admin/pages',
-        //     'icon'        => 'far fa-fw fa-file',
-        //     'label'       => 4,
-        //     'label_color' => 'success',
-        // ],
-        //['header' => 'account_settings'],
-        // [
-        //     'text'    => 'multilevel',
-        //     'icon'    => 'fas fa-fw fa-share',
-        //     'submenu' => [
-        //         [
-        //             'text' => 'level_one',
-        //             'url'  => '#',
-        //         ],
-        //         [
-        //             'text'    => 'level_one',
-        //             'url'     => '#',
-        //             'submenu' => [
-        //                 [
-        //                     'text' => 'level_two',
-        //                     'url'  => '#',
-        //                 ],
-        //                 [
-        //                     'text'    => 'level_two',
-        //                     'url'     => '#',
-        //                     'submenu' => [
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url'  => '#',
-        //                         ],
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url'  => '#',
-        //                         ],
-        //                     ],
-        //                 ],
-        //             ],
-        //         ],
-        //         [
-        //             'text' => 'level_one',
-        //             'url'  => '#',
-        //         ],
-        //     ],
-        // ],
-        ['header' => 'CONFIGURACIÓN'],
+        ['header' => 'INVENTARIO'],
         [
-            'text' => 'Usuarios',
-            'route'  => 'admin.users.index',
-            'icon' => 'fas fa-fw fa-users-cog text-blue',
-            'active' => ['admin/users*'],
+            'text'    => 'INVENTARIO',
+            'icon'    => 'fas fa-fw fa-cog',
+            'submenu' => [
+                
+            
+            ],
         ],
+        ['header' => 'AJUSTES DE SISTEMA'],
         [
-            'text' => 'Tipo Documentos',
-            'route'  => 'admin.tipodocumentos.index',
-            'icon' => 'fas fa-fw fa-lock',
-            'active' => ['admin/tipodocumentos*'],
+            'text'    => 'AJUSTES EMPRESA',
+            'icon'    => 'fas fa-fw fa-cog',
+            'submenu' => [
+                [
+                    'text' => 'Tipo Documentos',
+                    'route'  => 'admin.tipodocumentos.index',
+                    'icon' => 'fas fa-fw fa-lock',
+                    'active' => ['admin/tipodocumentos*'],
+                ],
+                [
+                    'text' => 'Cargos',
+                    'route'  => 'admin.cargos.index',
+                    'icon' => 'fas fa-fw fa-lock',
+                    'active' => ['admin/cargos*'],
+                ],
+                [
+                    'text' => 'Departamentos',
+                    'route'  => 'admin.departamentos.index',
+                    'icon' => 'fas fa-sitemap text-blue',
+                    'active' => ['admin/departamentos*'],
+                ],
+                [
+                    'text' => 'Estados',
+                    'route'  => 'admin.estados.index',
+                    'icon' => 'fas fa-map-marked-alt text-blue',
+                    'active' => ['admin/estados*'],
+                ],
+                
+                [
+                    'text' => 'Municipios',
+                    'route'  => 'admin.ciudads.index',
+                    'icon' => 'fas fa-map-marked-alt text-blue',
+                    'active' => ['admin/ciudads*'],
+                ],
+                [
+                    'text' => 'Tipo Documentos',
+                    'route'  => 'admin.tipodocumentos.index',
+                    'icon' => 'fas fa-fw fa-lock',
+                    'active' => ['admin/tipodocumentos*'],
+                ],
+            ],
         ],
+        ['header' => 'SEGURIDAD DEL SISTEMA'],
         [
-            'text' => 'Cargos',
-            'route'  => 'admin.cargos.index',
-            'icon' => 'fas fa-fw fa-lock',
-            'active' => ['admin/cargos*'],
+            'text'    => 'SEGURIDAD SISTEMA',
+            'icon'    => 'fas fa-fw fa-cog',
+            'submenu' => [
+                [
+                    'text' => 'Usuarios',
+                    'route'  => 'admin.users.index',
+                    'icon' => 'fas fa-fw fa-users-cog text-blue',
+                    'active' => ['admin/users*'],
+                ],
+            ],
         ],
-        [
-            'text' => 'Departamentos',
-            'route'  => 'admin.departamentos.index',
-            'icon' => 'fas fa-sitemap text-blue',
-            'active' => ['admin/departamentos*'],
-        ],
-        [
-            'text' => 'Estados',
-            'route'  => 'admin.estados.index',
-            'icon' => 'fas fa-map-marked-alt text-blue',
-            'active' => ['admin/estados*'],
-        ],
-        
-        [
-            'text' => 'Ciudad',
-            'route'  => 'admin.ciudads.index',
-            'icon' => 'fas fa-map-marked-alt text-blue',
-            'active' => ['admin/ciudads*'],
-        ],
-        ['header' => '   '],
     ],
 
     /*

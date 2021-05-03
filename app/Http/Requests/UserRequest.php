@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         return [
                 'name' => 'required|min:3|max:20',
                 'last_name' => 'required|min:3|max:20',
-                'nacionalidad_id' => 'required',
+                'tipodocumento_id' => 'required',
                 'cedula' => 'required|unique:users,cedula' . $this->user,
                 'address' => 'required',
                 'phone' => 'required',

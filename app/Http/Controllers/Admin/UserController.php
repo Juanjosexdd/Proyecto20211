@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Models\Cargo;
 use App\Models\Departamento;
-use App\Models\Nacionalidad;
+use App\Models\Tipodocumento;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -46,12 +46,13 @@ class UserController extends Controller
         {
             $user->roles()->sync($request->get('roles','user'));
         }
-        if ($request->nacionalidads)
+        if ($request->tipodocumentos)
         {
-            $user->nacionalidad()->attach($request->nacionalidads);
+            $user->tipodocumento()->attach($request->tipodocumentos);
         }
         
-        return redirect()->route('admin.users.index');
+        
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se registro con exito...!!!');;
     }
 
     /**
@@ -74,11 +75,11 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $departamentos = Departamento::pluck('nombre','id');
-        $nacionalidads = Nacionalidad::pluck('abreviado','id');
+        $tipodocumentos = Tipodocumento::pluck('abreviado','id');
         $cargos = Cargo::pluck('nombre','id');
         $roles = Role::all();
 
-         return view('admin.users.edit', compact('departamentos','nacionalidads','cargos','roles','user'));
+         return view('admin.users.edit', compact('departamentos','tipodocumentos','cargos','roles','user'));
     }
 
     /**
@@ -100,7 +101,7 @@ class UserController extends Controller
 
         $user->save();
         
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se actualizó con exito...!!!');
     }
 
     /**
@@ -112,6 +113,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index')->with('info', 'El post se eliminó con exito...!!!');
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se eliminó con exito...!!!');
     }
 }

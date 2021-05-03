@@ -20,7 +20,7 @@
             </div>
             <div class="card-body" style="overflow-y: auto">
             <a href=" {{route('admin.users.index')}} " class="float-right h5 text-blue"><i class="fas fa-reply"></i>    Volver</a>
-            {!! Form::model($user ,['route' => ['admin.users.update', $user->id],'method' => 'PUT', 'autocomplete' => 'off']) !!}
+            {!! Form::model($user ,['route' => ['admin.users.update', $user],'method' => 'PUT', 'autocomplete' => 'off']) !!}
                 @include('admin.users.partials.form')
                 {!! Form::submit('Guardar usuario', ['class' => 'btn btn-outline-primary btn-block']) !!}
 

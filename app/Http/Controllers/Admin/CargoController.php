@@ -39,7 +39,7 @@ class CargoController extends Controller
 
         $cargo = Cargo::create($request->all());
 
-        return redirect()->route('admin.cargos.edit', $cargo)->with('info', 'El cargo se creo con exito...');
+        return redirect()->route('admin.cargos.edit', $cargo)->with('success', ' ¡Felicidades el cargo se creo con éxito!');
     }
 
     public function edit(Cargo $cargo)
@@ -58,13 +58,13 @@ class CargoController extends Controller
         ]);
 
         $cargo->update($request->all());
-        return redirect()->route('admin.cargos.edit', $cargo)->with('info', 'El cargo se actualizó con exito...');
+        return redirect()->route('admin.cargos.edit', $cargo)->with('success', ' ¡Felicidades el cargo se actualizó con éxito!');
     }
 
     public function destroy(Cargo $cargo)
     {
         $cargo->delete();
 
-        return redirect()->route('admin.cargos.index')->with('info', 'El cargo se eliminó con exito...');
+        return redirect()->route('admin.cargos.index')->with('success', ' ¡Felicidades el cargo se eliminó con éxito!');
     }
 }

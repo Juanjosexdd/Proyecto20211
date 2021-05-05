@@ -3796,31 +3796,13 @@ module.exports = {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
-
-
-window.deleteConfirm = function (formId) {
-  sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-    icon: 'warning',
-    text: 'Do you want to delete this?',
-    showCancelButton: true,
-    confirmButtonText: 'Delete',
-    confirmButtonColor: '#e3342f'
-  }).then(function (result) {
-    if (result.isConfirmed) {
-      document.getElementById(formId).submit();
-    }
-  });
-};
+window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 
 /***/ }),
 
@@ -21281,7 +21263,7 @@ process.umask = function() { return 0; };
 /***/ (function(module) {
 
 /*!
-* sweetalert2 v10.16.6
+* sweetalert2 v10.16.7
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22576,6 +22558,7 @@ process.umask = function() { return 0; };
    */
 
   var queue = function queue(steps) {
+    warnAboutDeprecation('Swal.queue()', "async/await");
     var Swal = this;
     currentSteps = steps;
 
@@ -24906,7 +24889,7 @@ process.umask = function() { return 0; };
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '10.16.6';
+  SweetAlert.version = '10.16.7';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
@@ -24981,30 +24964,6 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	

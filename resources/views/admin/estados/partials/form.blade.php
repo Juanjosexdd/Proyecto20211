@@ -2,7 +2,7 @@
 <p class="h3 text-blue">Estado</p>
 <hr>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="form-group">
             {!! Form::label('nombre', 'Nombres & ',['class' => 'text-blue ']) !!}       {!! Form::label('slug', 'slug :',['class' => 'text-blue']) !!}
             <div class="input-group mb-3">

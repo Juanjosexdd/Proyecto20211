@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Listado de Estados')
+@section('title', 'ENASA | LISTA DE ESTADOS')
 
 @section('content_header')
-    <h1>Listado de estados</h1>
+    <h1 class="text-blue">LISTA DE ESTADOS</h1>
 @stop
 
 @section('content')
@@ -12,9 +12,8 @@
 <div class="container">
 
     <div class="card card-custom bg-white border-white border-0 elevation-5">
-        <div class="card-custom-img"
-            style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
-
+        <div class="card-custom-img">
+            <img src=" {{asset('storage/header.png')}} " class="img-fluid" alt="">
         </div>
         <div class="card-custom-avatar">
             <img class="img-fluid"

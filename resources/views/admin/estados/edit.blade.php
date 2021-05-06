@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar nuevo estado')
+@section('title', 'ENASA | EDITAR ESTADO')
 
 
 @section('content_header')
-    <h1>Editar nuevo estado</h1>
+    <h1 class="text-blue">EDITAR ESTADO</h1>
 @stop
 
 @section('content')
@@ -13,8 +13,8 @@
 
     <div class="container">
         <div class="card card-custom bg-white border-white border-0 elevation-5">
-            <div class="card-custom-img"
-                style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
+            <div class="card-custom-img">
+                <img src=" {{asset('storage/header.png')}} " class="img-fluid" alt="">
             </div>
             <div class="card-custom-avatar">
             </div>

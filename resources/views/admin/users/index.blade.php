@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Inicio Enasa')
+@section('title', 'ENASA | USUARIOS')
 
 @section('content_header')
-    <h1>Listado de Usuarios</h1>
+    <h1 class="text-blue">LISTA DE USUARIOS</h1>
 @stop
 
 @section('css')
@@ -13,71 +13,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css    ">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.csss">
+<link rel="stylesheet" href=" {{asset('vendor/cards.css')}} ">
     
-    <style>
-        .card-custom {
-            overflow: hidden;
-            min-height: 50px;
-            box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
-        }
-
-        .card-custom-img {
-            height: 50px;
-            min-height: 10px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            border-color: inherit;
-        }
-
-        /* First border-left-width setting is a fallback */
-        .card-custom-img::after {
-            position: absolute;
-            content: '';
-            top: 61px;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-top-width: 40px;
-            border-right-width: 0;
-            border-bottom-width: 0;
-            border-left-width: 45px;
-            border-left-width: calc(575px - 5vw);
-            border-top-color: transparent;
-            border-right-color: transparent;
-            border-bottom-color: transparent;
-            border-left-color: inherit;
-        }
-
-        .card-custom-avatar img {
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
-            position: absolute;
-            top: 10px;
-            left: 1.25rem;
-            width: 50px;
-            height: 50px;
-        }
-
-    </style>
 @stop
 @section('content')
 @include('sweetalert::alert')
 
 <div class="container">
-
     <div class="card card-custom bg-white border-white border-0 elevation-5">
-        <div class="card-custom-img"
-            style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
-
+        <div class="card-custom-img">
+            <img src=" {{asset('storage/header.png')}} " class="img-fluid" alt="">
+            <a href="{{route('admin.users.create')}}" class="btn bg-navy float-right mt-2 mb-4 btn-sm px-2 mr-3 elevation-4"><i class="fas fa-plus mt-2 px-3"></i></a>
         </div>
         <div class="card-custom-avatar">
-            <img class="img-fluid"
-                src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
-                alt="Avatar" />
+            
         </div>
-        <div class="card-body" style="overflow-y: auto">
+
+        <div class="card-body mt-5" style="overflow-y: auto">
             <table class="table table-striped dt-responsive nowrap" id="usuarios">
                 <thead>
                     <tr>
@@ -134,6 +86,8 @@
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+    <script src=" {{asset('vendor/sweetalert-eliminar.js')}} "></script>
+
     
 
 

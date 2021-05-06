@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Listado de Municipios')
+@section('title', 'ENASA | MUNICIPIOS')
 
 @section('content_header')
-    <h1>Listado de municipio</h1>
+    <h1 class="text-blue">LISTA DE MUNICIPIOS</h1>
 @stop
 
 @section('content')

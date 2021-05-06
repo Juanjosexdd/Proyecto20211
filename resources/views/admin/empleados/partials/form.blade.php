@@ -1,3 +1,4 @@
+<a href=" {{route('admin.empleados.index')}} " class="float-right h5 text-blue"><i class="fas fa-reply"></i>   Volver</a>
 <p class="h3 text-blue">Información Personal</p>
 <hr>
 <div class="row">

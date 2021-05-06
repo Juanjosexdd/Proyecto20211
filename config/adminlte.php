@@ -237,15 +237,20 @@ return [
         [
             'text'        => 'Dashboard',
             'url'         => 'admin',
-            'icon'        => 'fas fa-tachometer-alt fa-fw'
+            'icon'        => 'fas fa-tachometer-alt fa-fw text-blue'
         ],
         ['header' => 'INVENTARIO'],
         [
             'text'    => 'INVENTARIO',
             'icon'    => 'fas fa-fw fa-cog',
             'submenu' => [
+                [
+                    'text' => 'Empleados',
+                    'route'  => 'admin.empleados.index',
+                    'icon' => 'fas fa-fw fa-users text-blue',
+                    'active' => ['admin/empleados*'],
+                ],
                 
-            
             ],
         ],
         ['header' => 'AJUSTES DE SISTEMA'],
@@ -256,13 +261,13 @@ return [
                 [
                     'text' => 'Tipo Documentos',
                     'route'  => 'admin.tipodocumentos.index',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'far fa-file-alt text-blue',
                     'active' => ['admin/tipodocumentos*'],
                 ],
                 [
                     'text' => 'Cargos',
                     'route'  => 'admin.cargos.index',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-project-diagram text-blue',
                     'active' => ['admin/cargos*'],
                 ],
                 [
@@ -287,7 +292,7 @@ return [
                 [
                     'text' => 'Tipo Documentos',
                     'route'  => 'admin.tipodocumentos.index',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-lock text-blue',
                     'active' => ['admin/tipodocumentos*'],
                 ],
             ],
@@ -295,7 +300,7 @@ return [
         ['header' => 'SEGURIDAD DEL SISTEMA'],
         [
             'text'    => 'SEGURIDAD SISTEMA',
-            'icon'    => 'fas fa-fw fa-cog',
+            'icon'    => 'fas fa-fw fa-cog text-blue',
             'submenu' => [
                 [
                     'text' => 'Usuarios',

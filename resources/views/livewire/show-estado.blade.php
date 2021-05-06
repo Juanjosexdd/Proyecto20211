@@ -95,77 +95,10 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-4.min.css') }}">
-
-    <style>
-        .card-custom {
-            overflow: hidden;
-            min-height: 450px;
-            box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
-        }
-
-        .card-custom-img {
-            height: 50px;
-            min-height: 10px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            border-color: inherit;
-        }
-
-        /* First border-left-width setting is a fallback */
-        .card-custom-img::after {
-            position: absolute;
-            content: '';
-            top: 161px;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-top-width: 40px;
-            border-right-width: 0;
-            border-bottom-width: 0;
-            border-left-width: 545px;
-            border-left-width: calc(575px - 5vw);
-            border-top-color: transparent;
-            border-right-color: transparent;
-            border-bottom-color: transparent;
-            border-left-color: inherit;
-        }
-
-        .card-custom-avatar img {
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
-            position: absolute;
-            top: 10px;
-            left: 1.25rem;
-            width: 50px;
-            height: 50px;
-        }
-
-    </style>
+    <link rel="stylesheet" href=" {{ asset('vendor/cards.css')}} ">
 @stop
 
 @section('js')
     <script src="{{asset('vendor/sweetalert2.js')}}  "></script>
-
-    <script>
-        $('.formulario-eliminar').submit(function(e) {
-            e.preventDefault();
-           
-            Swal.fire({
-                title: '¿Está seguro?',
-                text: "¡No podrás revertir esto!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText: 'Cancelar!',
-                confirmButtonText: '¡Sí, Bórralo!'
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    this.submit();
-                }
-            })  
-        });
-    </script>
+    <script src=" {{asset('vendor/sweetalert-eliminar.js')}} "></script>
 @stop

@@ -1,4 +1,4 @@
-<a href=" {{route('admin.departamentos.index')}} " class="float-right h5 text-blue"><i class="fas fa-reply"></i>    Volver</a>
+<a href=" {{route('admin.departamentos.index')}} " class="float-right h5 text-blue"><i class="fas fa-reply"></i>   Volver</a>
 <p class="h3 text-blue">Departamento</p>
 <hr>
 <div class="row">

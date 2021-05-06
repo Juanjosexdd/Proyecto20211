@@ -1,6 +1,6 @@
 <a href=" {{route('admin.tipodocumentos.index')}} " class="float-right h5 text-blue "><i class="fas fa-reply"></i>  Volver  </a>
 
-<p class="h3 text-blue">Tipo de documentos</p>
+<p class="h3 text-blue mt-1">Tipo de documento</p>
 <hr>
 <div class="row">
     <div class="col-md-6">
@@ -10,7 +10,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="far fa-address-card text-blue"></i></span>
                 </div>
-                {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombres']) !!}
+                {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) !!}
                 {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug' ,'readonly']) !!}
             </div>
             @error('nombre')

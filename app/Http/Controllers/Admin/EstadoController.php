@@ -38,7 +38,7 @@ class EstadoController extends Controller
 
         $estado = Estado::create($request->all());
 
-        return redirect()->route('admin.estados.edit', $estado)->with('success', 'Task Created Successfully!');
+        return redirect()->route('admin.estados.edit', $estado)->with('success', '¡Felicidades el estado se creó con éxito!');
     }
 
     public function edit(Estado $estado)
@@ -56,13 +56,13 @@ class EstadoController extends Controller
         ]);
 
         $estado->update($request->all());
-        return redirect()->route('admin.estados.edit', $estado)->with('info', 'El estado se actualizó con exito...');
+        return redirect()->route('admin.estados.edit', $estado)->with('success', '¡Felicidades el estado se actualizó con éxito!');
     }
 
     public function destroy(Estado $estado)
     {
         $estado->delete();
 
-        return redirect()->route('admin.estados.index')->with('success', 'El estado se Eliminó con exito...');;
+        return redirect()->route('admin.estados.index')->with('success', '¡Felicidades el estado se Eliminó con éxito!');;
     }
 }

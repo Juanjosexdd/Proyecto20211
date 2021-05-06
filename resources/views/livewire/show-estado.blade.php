@@ -66,7 +66,7 @@
                                     @csrf
                                     @method('delete')
                                 </form> --}}
-                                <form action="{{route('admin.estados.destroy', $estado)}}" method="POST">
+                                <form class="formulario-eliminar" action="{{route('admin.estados.destroy', $estado)}}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" id="delete-product-form-39" class="btn btn-outline-danger btn-sm elevation-4"><i class="fas fa-trash"></i></button>
@@ -146,11 +146,26 @@
 @stop
 
 @section('js')
-<script src="{{asset('js/sweetalert2.min.js') }}"></script>
-<script src="{{asset('resources/app.js') }}"></script>
-
+    <script src="{{asset('vendor/sweetalert2.js')}}  "></script>
 
     <script>
- 
+        $('.formulario-eliminar').submit(function(e) {
+            e.preventDefault();
+           
+            Swal.fire({
+                title: '¿Está seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar!',
+                confirmButtonText: '¡Sí, Bórralo!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })  
+        });
     </script>
 @stop

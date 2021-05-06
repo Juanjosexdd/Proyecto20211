@@ -4,12 +4,12 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            {!! Form::label('nombre', 'Nombres & ',['class' => 'text-blue ']) !!}       {!! Form::label('slug', 'slug :',['class' => 'text-blue']) !!}
+            {!! Form::label('nombre', 'Nombre & ',['class' => 'text-blue ']) !!}       {!! Form::label('slug', 'slug :',['class' => 'text-blue']) !!}
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-sitemap text-blue"></i></span>
                 </div>
-                {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombres']) !!}
+                {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) !!}
                 {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug' ,'readonly']) !!}
             </div>
             @error('nombre')
@@ -24,7 +24,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-ad"></i></span>
                 </div>
-                {!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Apellidos']) !!}
+                {!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Descripción']) !!}
             </div>
             @error('descripcion')
                 <small class="text-danger mt-0">{{$message}}</small>

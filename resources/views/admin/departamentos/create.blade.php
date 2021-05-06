@@ -8,6 +8,8 @@
 @stop
 
 @section('content')
+@include('sweetalert::alert')
+
     <div class="container">
 
         <div class="card card-custom bg-white border-white border-0 elevation-5">

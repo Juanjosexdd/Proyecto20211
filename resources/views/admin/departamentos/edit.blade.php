@@ -82,19 +82,4 @@
     </style>
 @stop
 
-@section('js')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-        Livewire.on('alert', function($message) {
-            Swal.fire(
-                'Buen Trabajo!',
-                $message,
-                'success'
-            )
-        })
-
-    </script>
-@stop
-
 

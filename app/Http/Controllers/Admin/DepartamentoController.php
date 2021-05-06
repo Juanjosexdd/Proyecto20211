@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Departamento;
+use Illuminate\Support\Facades\Validator;
 
 class DepartamentoController extends Controller
 {
@@ -37,9 +38,19 @@ class DepartamentoController extends Controller
             'slug' => 'required|unique:departamentos'
         ]);
 
+        // $validator = Validator::make($request->all(), [
+        //     'nombre' => 'required',
+        //     'descripcion' => 'required',
+        //     'slug' => 'required|unique:departamentos'
+        // ]);
+
+        // if ($validator->fails()) {
+        //     return back()->with('error', $validator->messages()->all()[0])->withInput();
+        // }
+
         $departamento = Departamento::create($request->all());
 
-        return redirect()->route('admin.departamentos.edit', $departamento)->with('info', 'El departamento se creo con exito...');
+        return redirect()->route('admin.departamentos.edit', $departamento)->with('toast_success', 'Felicidades el departamento se creo con exito...');
     }
 
     public function edit(Departamento $departamento)
@@ -54,17 +65,17 @@ class DepartamentoController extends Controller
         $request->validate([
             'nombre' => 'required',
             'slug' => "required|unique:departamentos,slug,$departamento->id",
-            'descipcion' => 'required'
+            'descripcion' => 'required'
         ]);
 
         $departamento->update($request->all());
-        return redirect()->route('admin.departamentos.edit', $departamento)->with('info', 'El departamento se actualizó con exito...');
+        return redirect()->route('admin.departamentos.edit', $departamento)->with('success', 'El departamento se actualizó con exito...');
     }
 
     public function destroy(Departamento $departamento)
     {
         $departamento->delete();
 
-        return redirect()->route('admin.departamentos.index')->with('info', 'El departamento se eliminó con exito...');
+        return redirect()->route('admin.departamentos.index')->with('success', 'El departamento se eliminó con exito...');
     }
 }

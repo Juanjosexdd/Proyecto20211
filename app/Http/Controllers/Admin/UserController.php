@@ -52,7 +52,7 @@ class UserController extends Controller
         }
         
         
-        return redirect()->route('admin.users.index')->with('success', 'El usuario se registro con exito...!!!');;
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se registro con exito...!!!');
     }
 
     /**

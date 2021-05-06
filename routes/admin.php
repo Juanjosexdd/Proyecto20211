@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CargoController;
 use App\Http\Controllers\Admin\DepartamentoController;
 use App\Http\Controllers\Admin\EstadoController;
 use App\Http\Controllers\Admin\CiudadController;
+use App\Http\Controllers\Admin\EmpleadoController;
 
 Route::get('', [HomeController::class, 'index'])->name('admin.home');
 Route::resource('users', UserController::class)->names('admin.users');
@@ -16,4 +17,5 @@ Route::resource('cargos', CargoController::class)->names('admin.cargos');
 Route::resource('departamentos', DepartamentoController::class)->names('admin.departamentos');
 Route::resource('estados', EstadoController::class)->names('admin.estados');
 Route::resource('ciudads', CiudadController::class)->names('admin.ciudads');
+Route::resource('empleados', EmpleadoController::class)->names('admin.empleados');
 

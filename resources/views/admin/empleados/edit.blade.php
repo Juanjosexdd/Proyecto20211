@@ -1,31 +1,30 @@
 @extends('adminlte::page')
 
-@section('title', 'Registrar nuevo cargo')
+@section('title', 'Editar Trabajador')
 
 
 @section('content_header')
-    <h1>Registrar nuevo cargo</h1>
+    <h1>Editar Trabajador</h1>
 @stop
 
 @section('content')
-    <div class="container">
+@include('sweetalert::alert')
+        
+        <div class="container">
 
         <div class="card card-custom bg-white border-white border-0 elevation-5">
             <div class="card-custom-img"
                 style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
             </div>
             <div class="card-custom-avatar">
-               <!-- <img class="img-fluid"
-                    src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
-                    alt="Avatar" /> -->
             </div>
-
             <div class="card-body" style="overflow-y: auto">
-                {!! Form::open(['route' => 'admin.cargos.store']) !!}
+            <a href=" {{route('admin.empleados.index')}} " class="float-right h5 text-blue"><i class="fas fa-reply"></i>    Volver</a>
+            {!! Form::model($empleado ,['route' => ['admin.empleados.update', $empleado],'method' => 'PUT', 'autocomplete' => 'off']) !!}
+                @include('admin.empleados.partials.form')
+                {!! Form::submit('Guardar usuario', ['class' => 'btn btn-outline-primary btn-block']) !!}
 
-                    @include('admin.cargos.partials.form')
-                    {!! Form::submit('Guardar cargo', ['class' => 'btn btn-outline-primary btn-block']) !!}
-                {!! Form::close() !!}
+            {!! Form::close() !!}
             </div>
             <div class="card-footer" style="background: inherit; border-color: inherit;">
 
@@ -86,6 +85,19 @@
     </style>
 @stop
 
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+    <script>
+        Livewire.on('alert', function($message) {
+            Swal.fire(
+                'Buen Trabajo!',
+                $message,
+                'success'
+            )
+        })
+
+    </script>
+@stop
 
 

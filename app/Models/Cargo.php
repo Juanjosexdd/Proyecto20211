@@ -16,8 +16,13 @@ class Cargo extends Model
         return "slug";
     }
 
-    public function user()
+    public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function empleados()
+    {
+        return $this->hasMany(Empleado::class);
     }
 }

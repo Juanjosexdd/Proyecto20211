@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista departamentos')
+@section('title', 'Inicio Enasa')
 
 @section('content_header')
-    <h1>Listado de Departamentos</h1>
+    <h1>Listado de Trabajadores</h1>
 @stop
 
 @section('content')
@@ -22,7 +22,7 @@
                 alt="Avatar" />
         </div>
         <div class="card-body" style="overflow-y: auto">
-            @livewire('show-departamento')
+            @livewire('show-empleado')
         </div>
         <div class="card-footer" style="background: inherit; border-color: inherit;">
 

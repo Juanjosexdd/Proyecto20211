@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Registrar nuevo cargo')
+@section('title', 'Registrar nuevo trabajador')
 
 
 @section('content_header')
-    <h1>Registrar nuevo cargo</h1>
+    <h1>Registrar trabajador</h1>
 @stop
 
 @section('content')
@@ -19,13 +19,13 @@
                     src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg"
                     alt="Avatar" /> -->
             </div>
-
             <div class="card-body" style="overflow-y: auto">
-                {!! Form::open(['route' => 'admin.cargos.store']) !!}
+                {!! Form::open(['route' => 'admin.empleados.store']) !!}
 
-                    @include('admin.cargos.partials.form')
-                    {!! Form::submit('Guardar cargo', ['class' => 'btn btn-outline-primary btn-block']) !!}
+                    @include('admin.empleados.partials.form')
+                    {!! Form::submit('Guardar Trabajador', ['class' => 'btn btn-outline-primary btn-block']) !!}
                 {!! Form::close() !!}
+
             </div>
             <div class="card-footer" style="background: inherit; border-color: inherit;">
 

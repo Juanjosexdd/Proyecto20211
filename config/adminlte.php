@@ -239,10 +239,29 @@ return [
             'url'         => 'admin',
             'icon'        => 'fas fa-tachometer-alt fa-fw text-blue'
         ],
+        ['header' => 'MOVIMIENTOS'],
+        [
+            'text'    => 'MOVIMIENTOS',
+            'icon'    => 'fas fa-truck-loading text-blue',
+            'submenu' => [
+                [
+                    'text' => 'Proveedores',
+                    'route'  => 'admin.proveedors.index',
+                    'icon' => 'fas fa-user-tie text-blue',
+                    'active' => ['admin/proveedors*'],
+                ],
+                [
+                    'text' => 'Ingreso',
+                    'route'  => 'admin.ingresos.index',
+                    'icon' => 'fas fa-people-carry text-blue',
+                    'active' => ['admin/ingresos*'],
+                ],
+            ],
+        ],
         ['header' => 'INVENTARIO'],
         [
             'text'    => 'INVENTARIO',
-            'icon'    => 'fas fa-fw fa-cog',
+            'icon'    => 'fas fa-warehouse text-blue',
             'submenu' => [
                 [
                     'text' => 'Empleados',
@@ -250,13 +269,31 @@ return [
                     'icon' => 'fas fa-fw fa-users text-blue',
                     'active' => ['admin/empleados*'],
                 ],
+                [
+                    'text' => 'Almacenes',
+                    'route'  => 'admin.almacens.index',
+                    'icon' => 'fas fa-warehouse text-blue',
+                    'active' => ['admin/almacens*'],
+                ],
+                [
+                    'text' => 'Clacificación',
+                    'route'  => 'admin.clacificacions.index',
+                    'icon' => 'fas fa-boxes text-blue',
+                    'active' => ['admin/clacificacions*'],
+                ],
+                [
+                    'text' => 'Productos',
+                    'route'  => 'admin.productos.index',
+                    'icon' => 'fab fa-product-hunt text-blue',
+                    'active' => ['admin/productos*'],
+                ],
                 
             ],
         ],
         ['header' => 'AJUSTES DE SISTEMA'],
         [
             'text'    => 'AJUSTES EMPRESA',
-            'icon'    => 'fas fa-fw fa-cog',
+            'icon'    => 'fas fa-cogs text-blue',
             'submenu' => [
                 [
                     'text' => 'Tipo Documentos',
@@ -288,19 +325,13 @@ return [
                     'route'  => 'admin.ciudads.index',
                     'icon' => 'fas fa-map-marked-alt text-blue',
                     'active' => ['admin/ciudads*'],
-                ],
-                [
-                    'text' => 'Tipo Documentos',
-                    'route'  => 'admin.tipodocumentos.index',
-                    'icon' => 'fas fa-fw fa-lock text-blue',
-                    'active' => ['admin/tipodocumentos*'],
-                ],
+                ]
             ],
         ],
         ['header' => 'SEGURIDAD DEL SISTEMA'],
         [
             'text'    => 'SEGURIDAD SISTEMA',
-            'icon'    => 'fas fa-fw fa-cog text-blue',
+            'icon'    => 'fas fa-fw fa-user-shield text-blue',
             'submenu' => [
                 [
                     'text' => 'Usuarios',

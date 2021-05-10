@@ -39,7 +39,7 @@ class TipodocumentoController extends Controller
 
         $tipodocumento = Tipodocumento::create($request->all());
 
-        return redirect()->route('admin.tipodocumentos.edit', $tipodocumento)->with('success', 'El tipo de documento se creo con exito...');
+        return redirect()->route('admin.tipodocumentos.edit', $tipodocumento)->with('success', 'El tipo de documento se creo con exito!');
     }
 
     public function edit(Tipodocumento $tipodocumento)
@@ -58,13 +58,13 @@ class TipodocumentoController extends Controller
         ]);
 
         $tipodocumento->update($request->all());
-        return redirect()->route('admin.tipodocumentos.edit', $tipodocumento)->with('success', 'El tipo de documento se actualizó con exito...');
+        return redirect()->route('admin.tipodocumentos.edit', $tipodocumento)->with('success', 'El tipo de documento se actualizó con exito!');
     }
 
     public function destroy(Tipodocumento $tipodocumento)
     {
         $tipodocumento->delete();
 
-        return redirect()->route('admin.tipodocumentos.index')->with('success', 'El tipodocumento se eliminó con exito...');
+        return redirect()->route('admin.tipodocumentos.index')->with('success', 'El tipodocumento se eliminó con exito!');
     }
 }

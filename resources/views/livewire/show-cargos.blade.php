@@ -52,8 +52,7 @@
                                 <i class="fas fa-sort float-right mt-1"></i>
                             @endif
                         </th>
-                        <th colspan="2">Estatus</th>
-                        <th colspan="2"></th>
+                        <th colspan="3"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,18 +61,23 @@
                             <td>{{$cargo->id}}</td>
                             <td>{{$cargo->nombre}}</td>
                             <td>{{$cargo->descripcion}}</td>
-
-                            <td> 
+                            <td width="4px"> 
                                 @if ($cargo->estatus == 1)
-                                    <span class="badge badge-success">Activo</span>
+                                    <form class="formulario-estatus" action="{{route('admin.cargos.show', $cargo)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-success btn-sm elevation-4"><i class="fas fa-user-check"></i></button>
+                                    </form>
                                 @else
-                                    <span class="badge badge-danger">Inactivo <i class="fad fa-user-times"></i></span>
+                                <form class="formulario-estatus" action="{{route('admin.cargos.show', $cargo)}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-danger btn-sm elevation-4"><i class="fas fa-user-times"></i></button>
+                                </form>
                                 @endif
                             </td>
-                            <td width="8px">
+                            <td width="4px">
                                 <a class="btn btn-outline-info btn-sm mr-1 elevation-4" href=" {{route('admin.cargos.edit',$cargo)}} "><i class="fas fa-edit"></i></a>
                             </td>
-                            <td width="8px">
+                            <td width="4px">
                                 <form class="formulario-eliminar" action="{{route('admin.cargos.destroy', $cargo)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -108,4 +112,5 @@
 @section('js')
     <script src="{{asset('vendor/sweetalert2.js')}}  "></script>
     <script src=" {{asset('vendor/sweetalert-eliminar.js')}} "></script>
+    <script src=" {{asset('vendor/sweetalert-estatus.js')}} "></script>
 @stop

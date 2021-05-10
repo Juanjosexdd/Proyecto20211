@@ -29,6 +29,23 @@ class CargoController extends Controller
         
     }
 
+    public function show(Cargo $cargo)
+    {
+        if($cargo->estatus=="1"){
+
+            $cargo->estatus= '0';
+            $cargo->save();
+            return redirect()->route('admin.cargos.index')->with('success', 'El cargo està inactivo con exito...!!!');
+
+       }else{
+
+            $cargo->estatus= '1';
+            $cargo->save();
+            return redirect()->route('admin.cargos.index')->with('success', 'El cargo se activó con exito...!!!');
+
+        }
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -54,7 +71,7 @@ class CargoController extends Controller
         $request->validate([
             'nombre' => 'required',
             'slug' => "required|unique:cargos,slug,$cargo->id",
-            'descipcion' => 'required'
+            'descripcion' => 'required'
         ]);
 
         $cargo->update($request->all());

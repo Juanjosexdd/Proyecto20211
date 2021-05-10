@@ -1,5 +1,5 @@
 <div>
-    <div class="card uppercase" bis_skin_checked="1">
+    <div class="card col-md-12 col-sm-12" bis_skin_checked="1">
         <div class="card-header" style="padding: .75rem .25rem" bis_skin_checked="1">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -10,12 +10,12 @@
             </div>
         </div>
         <!-- /.card-header -->
-        <div class="card-body p-0" bis_skin_checked="1">
+        <div class="card-body table-responsive p-0" bis_skin_checked="1">
         @if ($users->count())
-            <table class="table table-striped">
+            <table class="table table-striped table-hover text-nowrap">
                 <thead>
                     <tr>
-                        <th scope="col" role="button" wire:click="order('id')">
+                        {{-- <th scope="col" role="button" wire:click="order('id')">
                             ID
                             @if ($sort == 'id')
                                 @if ($direction == 'asc')
@@ -27,7 +27,7 @@
                                 <i class="fas fa-sort float-right mt-1"></i>
                             @endif
                             
-                        </th>
+                        </th> --}}
                         <th scope="col" role="button" wire:click="order('cedula')">
                             Identificacion
                             @if ($sort == 'cedula')
@@ -41,7 +41,7 @@
                             @endif
                         </th>
                         <th scope="col" role="button" wire:click="order('name')">
-                            nombre
+                            Nombres
                             @if ($sort == 'name')
                                 @if ($direction == 'asc')
                                     <i class="fas fas fa-sort-amount-down-alt float-right mt-1"></i>
@@ -53,7 +53,7 @@
                             @endif
                         </th>
                         <th scope="col" role="button" wire:click="order('email')">
-                            email
+                            Correo electronico
                             @if ($sort == 'email')
                                 @if ($direction == 'asc')
                                     <i class="fas fas fa-sort-amount-down-alt float-right mt-1"></i>
@@ -76,31 +76,36 @@
                                 <i class="fas fa-sort float-right mt-1"></i>
                             @endif
                         </th>
-                        <th colspan="2">Estatus</th>
-                        <th colspan="2"></th>
+                        <th colspan="3"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-sm">
                     @foreach ($users as $user)
                         <tr>
-                            <td>{{$user->id}}</td>
-                            <td> {{$user->tipodocumento->abreviado}}-{{$user->cedula}} </td>
-                            <td>{{$user->name}}</td>
+                            {{-- <td>{{$user->id}}</td> --}}
+                            <td>{{$user->tipodocumento->abreviado}}-{{$user->cedula}} </td>
+                            <td>{{$user->name}} {{$user->last_name}}</td>
                             <td>{{$user->email}}</td>
-                            <td> {{$user->cargo->nombre}}</td>
+                            <td>{{$user->cargo->nombre}}</td>
 
-                            <td> 
+                            <td width="4px"> 
                                 @if ($user->estatus == 1)
-                                    <span class="badge badge-success">Activo</span>
+                                    <form class="formulario-estatus" action="{{route('admin.users.show', $user)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-success btn-sm elevation-4"><i class="fas fa-user-check"></i></button>
+                                    </form>
                                 @else
-                                    <span class="badge badge-danger">Inactivo <i class="fad fa-user-times"></i></span>
+                                <form class="formulario-estatus" action="{{route('admin.users.show', $user)}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-danger btn-sm elevation-4"><i class="fas fa-user-times"></i></button>
+                                </form>
                                 @endif
                             </td>
-                            <td width="8px">
+                            <td width="4px">
                                 <a class="btn btn-outline-info btn-sm mr-1 elevation-4" href=" {{route('admin.users.edit',$user)}} "><i class="fas fa-edit"></i></a>
                             </td>
-                            <td width="8px">
-                                <form action="{{route('admin.users.destroy', $user)}}" method="POST">
+                            <td width="4px">
+                                <form class="formulario-eliminar" action="{{route('admin.users.destroy', $user)}}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-outline-danger btn-sm elevation-4"><i class="fas fa-trash"></i></button>
@@ -133,6 +138,7 @@
 @stop
 
 @section('js')
-<script src="{{asset('js/sweetalert2.min.js') }}"></script>
-
+<script src="{{asset('vendor/sweetalert2.js')}}  "></script>
+<script src=" {{asset('vendor/sweetalert-eliminar.js')}} "></script>
+<script src=" {{asset('vendor/sweetalert-estatus.js')}} "></script>
 @stop

@@ -35,6 +35,6 @@ class EmpleadoRequest extends FormRequest
             'telefono' => 'required',
             'celular' => 'required',
             'email' => 'required|unique:empleados,email' . $this->empleado,
-    ];
+        ];
     }
 }

@@ -7,13 +7,8 @@
 @stop
 
 @section('content')
-@if (session('info'))
-        <div class="alert alert-info alert-dismissible" style="background-color: #001f3f">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <strong>{{session('info')}}   <i class="far fa-thumbs-up"></i> </strong>
-        </div>
-    @endif
-    @include('sweetalert::alert')
+
+@include('sweetalert::alert')
 <div class="container">
 
     <div class="card card-custom bg-white border-white border-0 elevation-5">

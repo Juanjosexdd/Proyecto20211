@@ -48,7 +48,7 @@ class EmpleadoController extends Controller
         $empleado = Empleado::create($request->all());
         
         
-        return redirect()->route('admin.empleados.index')->with('success', 'El trabajador se registro con exito...!!!');
+        return redirect()->route('admin.empleados.index')->with('success', 'El trabajador se registro con exito!');
     }
 
     /**
@@ -59,7 +59,19 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        //
+        if($empleado->estatus=="1"){
+
+            $empleado->estatus= '0';
+            $empleado->save();
+            return redirect()->route('admin.empleados.index')->with('success', 'El usuario està inactivo con exito.!');
+
+       }else{
+
+            $empleado->estatus= '1';
+            $empleado->save();
+            return redirect()->route('admin.empleados.index')->with('success', 'El usuario se activó con exito!');
+
+        }
     }
 
     /**
@@ -88,7 +100,7 @@ class EmpleadoController extends Controller
     {
         $empleado->update($request->all());
         
-        return redirect()->route('admin.empleados.index')->with('success', 'El trabajador se actualizó con exito...!!!');
+        return redirect()->route('admin.empleados.index')->with('success', 'El trabajador se actualizó con exito.!');
 
     }
 

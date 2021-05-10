@@ -96,4 +96,5 @@
 @section('js')
     <script src="{{asset('vendor/sweetalert2.js')}}  "></script>
     <script src=" {{asset('vendor/sweetalert-eliminar.js')}} "></script>
+    <script src=" {{asset('vendor/sweetalert-estatus.js')}} "></script>
 @stop

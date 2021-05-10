@@ -53,7 +53,7 @@ class UserController extends Controller
         }
         
         
-        return redirect()->route('admin.users.index')->with('success', 'El usuario se registro con exito...!!!');
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se registro con éxito!');
     }
 
     /**
@@ -62,11 +62,6 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -102,7 +97,7 @@ class UserController extends Controller
 
         $user->save();
         
-        return redirect()->route('admin.users.index')->with('success', 'El usuario se actualizó con exito...!!!');
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se actualizó con éxito!');
     }
 
     /**
@@ -114,6 +109,23 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'El usuario se eliminó con exito...!!!');
+        return redirect()->route('admin.users.index')->with('success', 'El usuario se eliminó con éxito!');
+    }
+
+    public function show(User $user)
+    {
+        if($user->estatus=="1"){
+
+            $user->estatus= '0';
+            $user->save();
+            return redirect()->route('admin.users.index')->with('success', 'El usuario està inactivo con éxito!');
+
+       }else{
+
+            $user->estatus= '1';
+            $user->save();
+            return redirect()->route('admin.users.index')->with('success', 'El usuario se activó con éxito!');
+
+        }
     }
 }

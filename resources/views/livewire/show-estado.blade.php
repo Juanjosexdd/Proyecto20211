@@ -97,8 +97,8 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap-4.min.css') }}">
     <link rel="stylesheet" href=" {{ asset('vendor/cards.css')}} ">
 @stop
-
 @section('js')
     <script src="{{asset('vendor/sweetalert2.js')}}  "></script>
     <script src=" {{asset('vendor/sweetalert-eliminar.js')}} "></script>
+    <script src=" {{asset('vendor/sweetalert-estatus.js')}} "></script>
 @stop

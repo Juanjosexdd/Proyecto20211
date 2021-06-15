@@ -4781,7 +4781,7 @@ input[type="button"].btn-block {
   word-wrap: break-word;
   background-color: #ffffff;
   background-clip: border-box;
-  border: 0 solid rgba(0, 0, 0, 0.125);
+  border: 0 solid rgba(0, 0, 0, 50%);
   border-radius: 0.25rem;
 }
 

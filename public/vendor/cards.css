@@ -3,6 +3,7 @@
     overflow: hidden;
     min-height: 450px;
     box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+    border-radius: .50rem;
 }
 
 .card-custom-img {
@@ -12,7 +13,7 @@
     background-size: cover;
     background-position: center;
     border-color: inherit;
-    background-image: url("../storage/header.PNG");
+    background-image: url("../storage/header.PG");
 }
 
 .card-custom-avatar img {

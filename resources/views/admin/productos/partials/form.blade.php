@@ -9,12 +9,10 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="far fa-address-card text-blue"></i></span>
                 </div>
-                {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) !!}
+                {{ Form::text('nombre', null, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+                {!! $errors->first('nombre', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
                 {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug' ,'readonly']) !!}
             </div>
-            @error('nombre')
-                <small class="text-danger mt-0">{{$message}}</small>
-            @enderror
         </div>
     </div>
     <div class="col-md-3">

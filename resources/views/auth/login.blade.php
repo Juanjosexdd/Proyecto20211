@@ -1,3 +1,4 @@
+
 <x-guest-layout>
 
     @if (session('status'))
@@ -65,4 +66,3 @@
         </div>
     </form>
 </x-guest-layout>
-
